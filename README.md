@@ -1060,6 +1060,238 @@ public void process() { }
 ```
 ---
 
+# Spring Boot Database
+
+## 1. H2 Database
+- Lightweight in-memory database.
+- Useful for testing and development.
+- No installation required.
+- Auto-configured by Spring Boot.
+
+### Example configuration (application.properties):
+```
+spring.datasource.url=jdbc:h2:mem:testdb
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=sa
+spring.h2.console.enabled=true
+```
+Access H2 console:
+```
+http://localhost:8080/h2-console
+```
+
+---
+
+## 2. MySQL / PostgreSQL Integration
+
+### MySQL Configuration:
+```
+spring.datasource.url=jdbc:mysql://localhost:3306/mydb
+spring.datasource.username=root
+spring.datasource.password=1234
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+```
+
+MySQL Dependency:
+```xml
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-j</artifactId>
+</dependency>
+```
+### PostgreSQL Configuration:
+```
+spring.datasource.url=jdbc:postgresql://localhost:5432/mydb
+spring.datasource.username=postgres
+spring.datasource.password=1234
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+```
+PostgreSQL Dependency:
+```xml
+<dependency>
+    <groupId>org.postgresql</groupId>
+    <artifactId>postgresql</artifactId>
+</dependency>
+```
+## 3. Connection Pooling
+Spring Boot uses HikariCP as the default connection pool.
+
+#### Benefits:
+
+- Fastest JDBC connection pool
+- Low memory usage
+- High performance
+
+### Configuration:
+```
+spring.datasource.hikari.maximum-pool-size=10
+spring.datasource.hikari.minimum-idle=5
+spring.datasource.hikari.connection-timeout=30000
+spring.datasource.hikari.idle-timeout=600000
+```
+## 4. Flyway / Liquibase Migrations
+### Flyway
+
+- Version-based database migration tool.
+
+- Uses SQL files stored in:
+  ```
+  src/main/resources/db/migration
+  ```
+#### Example migration file:
+```
+V1__create_user_table.sql
+```
+Contents:
+```
+CREATE TABLE users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100)
+);
+```
+Flyway Dependency:
+```xml
+<dependency>
+    <groupId>org.flywaydb</groupId>
+    <artifactId>flyway-core</artifactId>
+</dependency>
+```
+### Liquibase
+
+- XML, YAML, JSON, or SQL based migrations.
+- Tracks changes in changelog files.
+Example `db.changelog-master.yaml`:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Upcoming Notes
 8. Spring Boot Database
