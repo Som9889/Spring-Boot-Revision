@@ -3198,3 +3198,8 @@ Spring Boot allows external config via:
 - **External config** → essential for cloud environments  
 
 ---
+Copyright (c) 2025 <Som Gupta>
+All rights reserved.
+
+This repository and its contents may not be copied, reproduced, modified,
+or distributed without explicit written permission from the author.
